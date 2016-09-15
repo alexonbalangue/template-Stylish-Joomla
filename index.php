@@ -13,6 +13,7 @@ defined('_JEXEC') or die;
 $apps             = JFactory::getApplication();
 $docs             = JFactory::getDocument();
 $users            = JFactory::getUser();
+$browser = JBrowser::getInstance();
 $this->language  = $docs->language;
 $this->direction = $docs->direction;
 
@@ -118,10 +119,14 @@ $docs->addStyleSheet('https://fonts.googleapis.com/css?family=Montserrat:400,700
 
 
 require_once dirname(__FILE__).DIRECTORY_SEPARATOR.'html'.DIRECTORY_SEPARATOR.'renderer'.DIRECTORY_SEPARATOR.'head.php';
-require_once JPATH_SITE.DIRECTORY_SEPARATOR.'media'.DIRECTORY_SEPARATOR.'mod_opensource'.DIRECTORY_SEPARATOR.'Mobile_Detect.php';
-$detect = new Mobile_Detect;
-$JMobileDetectHeader = $detect->isMobile() && $detect->isTablet() ? '<jdoc:include type="modules" name="banner-mheader" style="nones" />' : '<jdoc:include type="modules" name="banner-header" style="nones" />';
-$JMobileDetectFooter = $detect->isMobile() && $detect->isTablet() ? '<jdoc:include type="modules" name="banner-mfooter" style="nones" />' : '<jdoc:include type="modules" name="banner-footer" style="nones" />';
+
+if( $browser->isMobile() == true ){
+  $JMobileDetectHeader = '<jdoc:include type="modules" name="banner-mheader" style="nones" />';
+  $JMobileDetectFooter = '<jdoc:include type="modules" name="banner-mfooter" style="nones" />';
+} else {
+  $JMobileDetectHeader =  '<jdoc:include type="modules" name="banner-header" style="nones" />';
+  $JMobileDetectFooter = '<jdoc:include type="modules" name="banner-footer" style="nones" />';
+}
 ?>
 
 [doctype html="html" /]
