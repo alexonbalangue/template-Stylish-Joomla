@@ -13,6 +13,7 @@ defined('_JEXEC') or die;
 $apps             = JFactory::getApplication();
 $docs             = JFactory::getDocument();
 $users            = JFactory::getUser();
+jimport( 'joomla.environment.browser' );
 $browser = JBrowser::getInstance();
 $this->language  = $docs->language;
 $this->direction = $docs->direction;
