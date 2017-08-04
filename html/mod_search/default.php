@@ -17,7 +17,7 @@ defined('_JEXEC') or die;
 <div class="<?php echo $moduleclass_sfx ?>">
 	<form action="<?php echo JRoute::_('index.php');?>" method="post" class="form-inline">
 		<?php
-			$output = '<label for="mod-search-searchword" class="sr-only">' . $label . '</label> ';
+			$output = '<label for="mod-search-searchword" class="hidden">' . $label . '</label> ';
 			$output .= '<input name="searchword" class="form-control" id="mod-search-searchword" maxlength="' . $maxlength . '"  class="inputbox search-query" type="search"';
 			$output .= ' placeholder="' . $text . '" />';
 

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="3.6" type="template" client="site" method="upgrade">
+<extension version="3.7" type="template" client="site" method="upgrade">
 	<name>stylish</name>
 	<version>1.4.1</version>
-	<creationDate>September, 15th 2016</creationDate>
+	<creationDate>4 august 2017</creationDate>
 	<author>Alexon Balangue</author>
 	<authorUrl>www.alexonbalangue.me</authorUrl>
 	<authorEmail>moi.sites@alexonbalangue.me</authorEmail>
-	<copyright>Copyright (C) 2016 Alexon Balangue. All rights reserved.</copyright>
+	<copyright>Copyright (C) 2017 Alexon Balangue. All rights reserved.</copyright>
 	<description>TPL_STYLISH_XML_DESCRIPTION</description>
 	<files>
 		<filename>component.php</filename>
@@ -14,7 +14,6 @@
 		<filename>offline.php</filename>
 		<filename>favicon.ico</filename>
 		<filename>index.php</filename>
-		<filename>index.html</filename>
 		<filename>templateDetails.xml</filename>
 		<filename>template_preview.png</filename>
 		<filename>template_thumbnail.png</filename>
@@ -185,7 +184,7 @@
 		</fields>
 	</config>
 	<updateservers>
-		<server type="collection" priority="1" name="Accredited by Alexon Balangue">https://jupdates.alexonbalangue.me/update/joomla/general.xml</server>
-		<server type="extension" priority="2" name="TPL - Stylish">https://jupdates.alexonbalangue.me/update/joomla/xml/tpl_stylish.xml</server>
+		<server type="collection" priority="1" name="Accredited by Alexon Balangue">https://alexonbalangue.me/index.php?option=com_ars&amp;view=update&amp;task=all&amp;format=xml</server>
+		<server type="extension" priority="2" name="TPL - Stylish">http://alexonbalangue.me/index.php?option=com_ars&amp;view=update&amp;task=stream&amp;format=xml&amp;id=17</server>
 	</updateservers>
 </extension>

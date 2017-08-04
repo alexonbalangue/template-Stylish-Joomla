@@ -15,7 +15,7 @@ $this->language  = $docs->language;
 $this->direction = $docs->direction;
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?php echo $this->language; ?>">
 <head>
 <jdoc:include type="head" />
 </head>

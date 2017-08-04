@@ -21,7 +21,7 @@ $docs->addStyleSheet('http://fonts.googleapis.com/css?family=Montserrat:400,700'
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?php echo $this->language; ?>">
 <head>	
 <meta charset="utf-8">
 	<title><?php echo $this->title; ?> </title>

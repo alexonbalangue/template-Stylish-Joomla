@@ -1,33 +1,28 @@
 <?php
 
 defined('_JEXEC') or die;
-if(!define): define('DS', DIRECTORY_SEPARATOR) endif;
-$app             = JFactory::getApplication();
-$doc             = JFactory::getDocument();
-$this->language  = $doc->language;
-$this->direction = $doc->direction;
-$sitename = $app->getCfg('sitename');
-$desc_site = $app->getCfg('MetaDesc');
+#if(!define): define('DS', DIRECTORY_SEPARATOR); endif;
+$apps             = JFactory::getApplication();
+$docs             = JFactory::getDocument();
+$this->language  = $docs->language;
+$this->direction = $docs->direction;
+$sitename = $apps->getCfg('sitename');
+$desc_site = $apps->getCfg('MetaDesc');
 // Getting params from template
-$params = $app->getTemplate(true)->params;
+$params = $apps->getTemplate(true)->params;
 //$this->_script = $this->_scripts = array();
 
-# If you use Analyrics intern - Piwik | With plugin https://www.yireo.com/software/joomla-extensions/piwik
-#include_once JPATH_SITE . '/plugins/system/piwik/piwik.php';
-#if (class_exists('PlgSystemPiwik')) {
-#    PlgSystemPiwik::callPiwik();
-#}
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?php echo $this->language; ?>">
 <head>
 	<meta charset="utf-8">
 	<title><?php echo $this->title; ?> <?php echo htmlspecialchars($this->error->getMessage(), ENT_QUOTES, 'UTF-8'); ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="robots" content="noindex,nofollow">
-	<?php if ($apps->get('debug_lang', '0') == '1' || $apps->get('debug', '0') == '1') : ?>
+	<?php if ($apps->get('debug_lang', '0') == '1' || $apps->get('debug', '0') == '1') { ?>
 		<link rel="stylesheet" href="<?php echo $this->baseurl; ?>/media/cms/css/debug.css" type="text/css">
-	<?php endif; ?>
+	<?php } ?>
 	<link href="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
   <link rel="stylesheet" href="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/assets/production/boostrap3-full.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700" />
@@ -87,7 +82,7 @@ $params = $app->getTemplate(true)->params;
 								<?php if (JModuleHelper::getModule('search')) : ?>
 									<p><strong><?php echo JText::_('JERROR_LAYOUT_SEARCH'); ?></strong></p>
 									<p><?php echo JText::_('JERROR_LAYOUT_SEARCH_PAGE'); ?></p>
-									<?php echo $doc->getBuffer('module', 'search'); ?>
+									<?php echo $docs->getBuffer('module', 'search'); ?>
 								<?php endif; ?>
 								<p><?php echo JText::_('JERROR_LAYOUT_GO_TO_THE_HOME_PAGE'); ?></p>
 								<p><a href="<?php echo $this->baseurl; ?>" class="btn btn-dark"><span class="fa fa-home"></span> <?php echo JText::_('JERROR_LAYOUT_HOME_PAGE'); ?></a></p>
@@ -115,6 +110,6 @@ $params = $app->getTemplate(true)->params;
 		<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script> 
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 	
 		<script src="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/assets/production/boostrap3-full.min.js"></script> 
-	<?php echo $doc->getBuffer('modules', 'debug', array('style' => 'none')); ?>
+	<?php echo $docs->getBuffer('modules', 'debug', array('style' => 'none')); ?>
 </body>
 </html>
